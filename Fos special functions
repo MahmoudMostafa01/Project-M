@@ -1,0 +1,25 @@
+int bytes(int num_of_arguments, char** arguments)
+{
+	int out=0;
+	for(int i=1;i<num_of_arguments-1;i+=2)
+	{
+		int x=strtol(arguments[i],NULL,10);
+		if((*arguments[i+1]=='m')||(*arguments[i+1]=='M'))
+
+			out+=1024*1024*x;
+
+		else if((*arguments[i+1]=='k')||(*arguments[i+1]=='K'))
+
+			out+=1024*x;
+
+		else if((*arguments[i+1]=='b')||(*arguments[i+1]=='B'))
+
+			out+=x;
+
+	}
+	if (num_of_arguments%2==0)
+			{
+			return -1;
+      }
+	return out;
+}
